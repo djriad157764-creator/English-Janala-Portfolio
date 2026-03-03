@@ -34,13 +34,23 @@
     <link rel="stylesheet" href="./style/style.css" />
 
     <style>
+      * {
+        font-family: "Poppins", sans-serif;
+      }
+
+      .bangla-font {
+        font-family: "Hind Siliguri", sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
       .card {
-        padding: 56px;
+        padding: 24px 32px;
         width: 100%;
         background: white;
         border: none;
         text-align: center;
-        /* box-shadow: 0 0 1px black; */
+        box-shadow: 0 0 2px black;
         border-radius: 8px;
       }
 
@@ -52,7 +62,7 @@
   </head>
   <body class="">
     <!-- navbar section  -->
-    <header class="bg-[#BADEFF]/26 lg:px-15">
+    <header class="bg-[#BADEFF]/26">
       <div class="navbar shadow-sm">
         <div class="navbar-start">
           <div class="dropdown">
@@ -82,8 +92,8 @@
                 >
               </li>
               <li>
-                <a href="#" class=""
-                  ><i class="fa-etch fa-solid fa-book-open"></i>Learn</a
+                <a href="#lessonsSection" class=""
+                  ><i class="fa-solid fa-book-open"></i>Learn</a
                 >
               </li>
               <li>
@@ -107,8 +117,8 @@
               >
             </li>
             <li>
-              <a href="#" class="btn btn-outline btn-primary"
-                ><i class="fa-etch fa-solid fa-book-open"></i>Learn</a
+              <a href="#lessonsSection" class="btn btn-outline btn-primary"
+                ><i class="fa-solid fa-book-open"></i>Learn</a
               >
             </li>
             <li>
@@ -122,7 +132,7 @@
     </header>
 
     <!-- banner section  -->
-    <section class="w-11/12 mx-auto mb-48 hidde">
+    <section class="w-11/12 mx-auto mb-48">
       <div class="hero">
         <div
           class="lg:flex-row flex flex-col-reverse justify-between items-center"
@@ -141,30 +151,36 @@
                 <input
                   type="text"
                   class="border-2 max-w-[320px] border-black/20 rounded-[4px] mb-5 py-[10px] px-3 text-black/50 font-semibold text-base"
-                  name=""
-                  id=""
+                  name="input-text"
+                  id="input-text"
                   placeholder="Enter Your Name"
                 /><br />
                 <input
                   type="password"
                   class="border-2 border-black/20 rounded-[4px] mb-5 py-[10px] px-3 max-w-[320px] text-black/50 font-semibold text-base"
-                  name=""
-                  id=""
+                  name="input-password"
+                  id="input-password"
                   placeholder="Enter Your Password"
                 />
               </form>
-              <button class="btn btn-primary">Get Started</button>
+              <button onclick="handleLogin()" class="btn btn-primary">
+                Get Started
+              </button>
             </div>
           </div>
           <div class="flex-1">
-            <img src="./assets/hero-student.png" class="" />
+            <img
+              src="./assets/hero-student.png"
+              alt="hero-student.png"
+              class=""
+            />
           </div>
         </div>
       </div>
     </section>
 
     <!-- lessons section  -->
-    <section class="lessons-section mx-auto mb-10">
+    <section id="lessonsSection" class="lessons-section mx-auto mb-10">
       <h1 class="text-4xl mb-10 font-bold text-center">
         <span class="text-sky-600">Let's</span> Learn Vocabularies
       </h1>
@@ -178,7 +194,7 @@
 
     <section
       id="word-container"
-      class="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 bg-base-300 mx-auto p-7"
+      class="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 bg-white mx-auto p-7"
     >
       <div class="col-span-3 mx-auto space-y-4">
         <img src="./assets/alert-error.png" alt="" class="mx-auto" />
