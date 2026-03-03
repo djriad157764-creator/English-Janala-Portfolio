@@ -5,12 +5,23 @@ const lessonsLoad = () => {
     .then((data) => displayLessons(data.data));
 };
 
+//Remove Btn Style
+const removeActive = () => {
+  let removeActiveBtn = document.querySelectorAll(".lessons-button");
+  removeActiveBtn.forEach((btn) => btn.classList.remove("active"));
+};
+
 const loadWord = (id) => {
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayWord(data.data));
+    .then((data) => {
+      removeActive();
+      const clickBtn = document.getElementById(`lessons-btn-${id}`);
+      clickBtn.classList.add("active");
+      displayWord(data.data);
+    });
 };
 
 const displayWord = (words) => {
@@ -56,7 +67,7 @@ const displayLessons = (lessons) => {
   for (let lesson of lessons) {
     const btnDiv = document.createElement("div");
     btnDiv.innerHTML = `
-               <button onClick= "loadWord(${lesson.level_no})" class="btn btn-outline btn-primary"
+               <button id="lessons-btn-${lesson.level_no}" onClick= "loadWord(${lesson.level_no})" class="btn btn-outline btn-primary lessons-button"
                 ><i class="fa-etch fa-solid fa-book-open"></i>Learn ${lesson.level_no}</button
               >
     `;
