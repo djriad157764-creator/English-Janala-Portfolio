@@ -32,6 +32,18 @@
     />
 
     <link rel="stylesheet" href="./style/style.css" />
+
+    <style>
+      .card {
+        padding: 56px;
+        width: 100%;
+        background: white;
+        border: none;
+        text-align: center;
+        /* box-shadow: 0 0 1px black; */
+        border-radius: 8px;
+      }
+    </style>
   </head>
   <body class="">
     <!-- navbar section  -->
@@ -105,7 +117,7 @@
     </header>
 
     <!-- banner section  -->
-    <section class="w-11/12 mx-auto">
+    <section class="w-11/12 mx-auto hidden">
       <div class="hero bg-white min-h-screen">
         <div
           class="lg:flex-row gap-64 flex lg:gap-0 flex-col-reverse justify-between items-center"
@@ -149,12 +161,22 @@
     <!-- lessons section  -->
     <section class="mx-auto">
       <h1 class="text-4xl my-4 font-bold text-center">
-              <span class="text-sky-600">Let's</span> Learn Vocabularies
-            </h1>
-      <div id="btn-container" class="flex justify-center gap-5 flex-wrap">
+        <span class="text-sky-600">Let's</span> Learn Vocabularies
+      </h1>
+      <div id="btn-container" class="flex justify-center gap-5 flex-wrap"></div>
+    </section>
 
+    <!-- words section  -->
+
+    <section
+      id="word-container"
+      class="my-16 grid grid-cols-3 gap-5 bg-base-300 mx-auto p-7"
+    >
+      <div class="col-span-3 mx-auto ">
+        <img src="./assets/alert-error.png" alt="" class="mx-auto" />
+        <p class="text-center">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+        <h1 class="text-center">নেক্সট Lesson এ যান</h1>
       </div>
-
     </section>
 
     <script src="./scripts/index.js"></script>
