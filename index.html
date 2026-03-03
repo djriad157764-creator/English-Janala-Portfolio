@@ -117,12 +117,12 @@
     </header>
 
     <!-- banner section  -->
-    <section class="w-11/12 mx-auto hidden">
-      <div class="hero bg-white min-h-screen">
+    <section class="w-11/12 mx-auto mb-48 hidde">
+      <div class="hero">
         <div
-          class="lg:flex-row gap-64 flex lg:gap-0 flex-col-reverse justify-between items-center"
+          class="lg:flex-row flex flex-col-reverse justify-between items-center"
         >
-          <div class="text-center md:text-start">
+          <div class="text-center flex-1 md:text-start">
             <h1 class="text-4xl xl:text-5xl lg:text-[40px] font-bold">
               <span class="text-sky-600">English</span> is Easy!!
             </h1>
@@ -151,7 +151,7 @@
               <button class="btn btn-primary">Get Started</button>
             </div>
           </div>
-          <div class="">
+          <div class="flex-1">
             <img src="./assets/hero-student.png" class="" />
           </div>
         </div>
@@ -159,8 +159,8 @@
     </section>
 
     <!-- lessons section  -->
-    <section class="mx-auto">
-      <h1 class="text-4xl my-4 font-bold text-center">
+    <section class="lessons-section mx-auto mb-10">
+      <h1 class="text-4xl mb-10 font-bold text-center">
         <span class="text-sky-600">Let's</span> Learn Vocabularies
       </h1>
       <div id="btn-container" class="flex justify-center gap-5 flex-wrap"></div>
@@ -170,12 +170,14 @@
 
     <section
       id="word-container"
-      class="my-16 grid grid-cols-3 gap-5 bg-base-300 mx-auto p-7"
+      class="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 bg-base-300 mx-auto p-7"
     >
-      <div class="col-span-3 mx-auto ">
+      <div class="col-span-3 mx-auto space-y-4">
         <img src="./assets/alert-error.png" alt="" class="mx-auto" />
-        <p class="text-center">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
-        <h1 class="text-center">নেক্সট Lesson এ যান</h1>
+        <p class="text-center">আপনি এখনো কোন Lesson Select করেন নি।</p>
+        <h1 class="text-center font-medium text-[34px] text-[#292524]">
+          একটি Lesson Select করুন।
+        </h1>
       </div>
     </section>
 
