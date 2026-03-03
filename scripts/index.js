@@ -101,5 +101,5 @@ const handleLogin = () => {
   }
 
   alert(`Welcome ${name}`);
-  document.querySelector(".hero").style.display = "none";
+  // document.querySelector(".hero").style.display = "none";
 };
