@@ -1,0 +1,18 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "diffEditor.wordWrap": "on",
+  "editor.inlineSuggest.edits.showCollapsed": true,
+  "editor.inlineSuggest.experimental.showOnSuggestConflict": "always",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "powermode.enabled": true,
+  "powermode.shake.intensity": 0,
+  "powermode.combo.counterSize": 0,
+  "powermode.combo.timeout": 0,
+  "powermode.shake.enabled": false,
+  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "powermode.combo.counterEnabled": "hide",
+  "powermode.combo.timerEnabled": "hide",
+  "powermode.explosions.enabled": true
+}
