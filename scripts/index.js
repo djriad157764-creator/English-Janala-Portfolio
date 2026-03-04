@@ -44,6 +44,7 @@ const loadWord = (id) => {
       const clickBtn = document.getElementById(`lessons-btn-${id}`);
       clickBtn.classList.add("active");
       displayWord(data.data);
+      document.getElementById("input-search").value = "";
     })
     .catch((error) => {
       console.error(error);
@@ -52,6 +53,7 @@ const loadWord = (id) => {
 };
 
 //Get ⚡ Words Detail
+
 const loadDetails = async (id) => {
   const modalContainer = document.getElementById("modal-container");
   const modal = document.getElementById("my_modal");
@@ -79,6 +81,44 @@ const loadDetails = async (id) => {
   }
 };
 
+document.getElementById("search-btn").addEventListener("click", () => {
+  removeActive();
+  const inputText = document.getElementById("input-search");
+  const search = inputText.value.trim().toLowerCase();
+  const div = document.getElementById("word-container");
+  div.innerHTML =
+    '<div class="col-span-3 text-center"><span class="loading loading-ring loading-xl"></span><p class="mt-4">Loading...</p></div>';
+  const url = "https://openapi.programming-hero.com/api/words/all";
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      const allWard = data.data;
+      const filterWord = allWard.filter((word) =>
+        word.word.toLowerCase().includes(search),
+      );
+
+      if (filterWord.length > 0) {
+        displayWord(filterWord);
+      } else {
+        div.innerHTML = `
+      <div class="col-span-3 mx-auto space-y-4">
+        <img src="./assets/alert-error.png" alt="" class="mx-auto" />
+        <p class="text-center"> Lesson Could not found</p>
+        <h1 class="text-center font-medium text-[34px] text-[#292524]">
+        search another lessons
+        </h1>
+      </div>
+      `;
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      alert("কোনো সমস্যা হয়েছে, দয়া করে পুনরায় চেষ্টা করুন");
+    });
+});
+
+// add dynamicBtn in card
+
 const dynamicBtn = (synonyms) => {
   const btn = synonyms.map(
     (el) => `<button class="btn btn-soft text-xl">${el}</button>`,
@@ -86,9 +126,10 @@ const dynamicBtn = (synonyms) => {
   return btn.join(" ");
 };
 
+// set modal in card
+
 const displayWordsDetails = (word) => {
   const modalContainer = document.getElementById("modal-container");
-
   modalContainer.innerHTML = `
     <h1 class="text-4xl font-semibold text-neutral bangla-font">
             ${word.word ? word.word : "Word unavailable !"} (<i class="fa-solid fa-microphone"></i>: ${word.pronunciation ? word.pronunciation : "pronunciation unavailable !"})
@@ -113,6 +154,8 @@ const displayWordsDetails = (word) => {
   document.getElementById("my_modal").showModal();
 };
 
+// set card in html ui
+
 const displayWord = (words) => {
   const wordContainer = document.getElementById("word-container");
   wordContainer.innerHTML = "";
@@ -126,20 +169,15 @@ const displayWord = (words) => {
         <h1 class="text-center font-medium text-[34px] text-[#292524]">নেক্সট Lesson এ যান</h1>
       </div>
     `;
-
-    // loadingSpin(false);
     return;
   }
-
   words.forEach((word) => {
     const card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = `
-    
           <h2 class="mb-6 text-[32px] font-bold text-black/80">${word.word ? word.word : "Word unavailable !"}</h2>
         <p class="mb-6 text-[20px] font-medium">Meaning /pronunciation</p>
         <h1 class="mb-14 text-[32px] bangla-font text-[#19191A]/70 font-semibold">${word.meaning ? word.meaning : "meaning unavailable !"} / ${word.pronunciation ? word.pronunciation : "pronunciation unavailable !"}</h1>
-        
         <div class="flex justify-between text-[#374957]">
           <button onclick="loadDetails(${word.id})" class="btn ">
             <i class="fa-solid fa-circle-info"></i>
@@ -149,11 +187,12 @@ const displayWord = (words) => {
           </button>
         </div>
     `;
-
     wordContainer.appendChild(card);
   });
-  // loadingSpin(false);
 };
+
+// lesson btn function
+
 const displayLessons = (lessons) => {
   let btnContainer = document.getElementById("btn-container");
   btnContainer.innerHTML = "";
@@ -168,6 +207,8 @@ const displayLessons = (lessons) => {
   }
 };
 lessonsLoad();
+
+// login btn handler
 
 const handleLogin = () => {
   const name = document.getElementById("input-text").value.trim();

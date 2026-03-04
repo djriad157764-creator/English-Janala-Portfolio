@@ -44,6 +44,7 @@
       }
       .card {
         padding: 24px 32px;
+        /* max-width: 372px; */
         width: 100%;
         background: white;
         border: none;
@@ -141,7 +142,8 @@
     </header>
 
     <!-- banner section  -->
-    <section class="w-11/12 mx-auto mb-48 hidde">
+
+    <section class="w-11/12 mx-auto mb-10 lg:mb-48">
       <div class="hero min-h-screen">
         <div
           class="lg:flex-row flex flex-col-reverse justify-between items-center"
@@ -162,7 +164,7 @@
                   class="border-2 max-w-[320px] border-black/20 rounded-[4px] mb-5 py-[10px] px-3 text-black/50 font-semibold text-base"
                   name="input-text"
                   id="input-text"
-                  placeholder="Enter Your Name"
+                  placeholder=" Enter Your Name"
                 /><br />
                 <input
                   type="password"
@@ -189,8 +191,9 @@
     </section>
 
     <!-- lessons section  -->
+
     <section id="lessonsSection" class="lessons-section mx-auto my-10">
-      <h1 class="text-4xl mb-10 font-bold text-center">
+      <h1 class="text-2xl md:text-4xl lg:text-5xl mb-10 font-bold text-center">
         <span class="text-sky-600">Let's</span> Learn Vocabularies
       </h1>
       <div
@@ -199,22 +202,35 @@
       ></div>
     </section>
 
-    <div id="loading-spinner" class="flex justify-center items-center hidden min-h-screen">
-      <span class="loading loading-spinner loading-xl"></span>
+    <!-- search section  -->
+
+    <div class="w-fit flex mx-auto">
+      <div class="join">
+        <input
+          type="search"
+          name=""
+          id="input-search"
+          class="border-2 border-black/20 rounded-[4px] mb-5 p-1.5 text-black/50 font-semibold text-base"
+          placeholder=" search..."
+        />
+        <button id="search-btn" class="btn btn-primary">search</button>
+      </div>
     </div>
 
     <!-- words section  -->
 
-    <section
-      id="word-container"
-      class="my-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 bg-white mx-auto p-7 min-h-screen hidde"
-    >
-      <div class="col-span-3 mx-auto space-y-4">
-        <img src="./assets/alert-error.png" alt="" class="mx-auto" />
-        <p class="text-center">আপনি এখনো কোন Lesson Select করেন নি।</p>
-        <h1 class="text-center font-medium text-[34px] text-[#292524]">
-          একটি Lesson Select করুন।
-        </h1>
+    <section class="min-h-screen">
+      <div
+        id="word-container"
+        class="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 bg-white mx-auto p-7 justify-items-center max-h-screen overflow-y-auto"
+      >
+        <div class="col-span-3 mx-auto space-y-4">
+          <img src="./assets/alert-error.png" alt="" class="mx-auto" />
+          <p class="text-center">আপনি এখনো কোন Lesson Select করেন নি।</p>
+          <h1 class="text-center font-medium text-[34px] text-[#292524]">
+            একটি Lesson Select করুন।
+          </h1>
+        </div>
       </div>
     </section>
 
@@ -235,7 +251,6 @@
         <div id="modal-container" class="space-y-6"></div>
       </div>
     </dialog>
-
     <script src="./scripts/index.js"></script>
   </body>
 </html>
